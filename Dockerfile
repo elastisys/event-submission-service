@@ -10,4 +10,6 @@ FROM scratch
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /go/src/github.com/filetrust/event-submission-service/cmd/event-submission-service /bin/event-submission-service
 
+USER 1001:1001
+
 ENTRYPOINT ["/bin/event-submission-service"]
